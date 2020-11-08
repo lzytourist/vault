@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Credit;
+use App\Models\Expenditure;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CreditFactory extends Factory
+class ExpenditureFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Credit::class;
+    protected $model = Expenditure::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,10 @@ class CreditFactory extends Factory
     public function definition()
     {
         return [
-            'from' => $this->faker->name,
-            'user_id' => User::all('id')->random(),
+            'reason' => $this->faker->sentence,
             'note' => $this->faker->sentence,
-            'amount' => $this->faker->numberBetween(1000, 10000)
+            'amount' => $this->faker->numberBetween(10, 10000),
+            'user_id' => User::all('id')->random()
         ];
     }
 }

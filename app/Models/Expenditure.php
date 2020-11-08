@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Credit extends Model
+class Expenditure extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['from', 'note', 'amount'];
+    protected $fillable = ['reason', 'note', 'amount'];
 
     public function user()
     {
