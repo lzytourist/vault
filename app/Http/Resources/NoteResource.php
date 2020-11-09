@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CreditResource extends JsonResource
+class NoteResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,8 @@ class CreditResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'from' => $this->from,
             'note' => $this->note,
-            'amount' => $this->amount,
+            'detail' => $this->detail,
             'date' => Carbon::make($this->created_at)->diffForHumans()
         ];
     }

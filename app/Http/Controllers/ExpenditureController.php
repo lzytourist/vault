@@ -18,7 +18,7 @@ class ExpenditureController extends Controller
      */
     public function index()
     {
-        $expenditures = Auth::user()->expenditures()->paginate(15, ['id', 'from', 'note', 'amount', 'created_at']);
+        $expenditures = Auth::user()->expenditures()->paginate(15, ['id', 'reason', 'note', 'amount', 'created_at']);
         return Response::json([
             'expenditures' => ExpenditureResource::collection($expenditures),
             'total' => ceil($expenditures->total() / 15)
