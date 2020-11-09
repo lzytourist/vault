@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Response;
 
 class NoteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
+
     public function index()
     {
         $notes = Auth::user()->notes()->paginate(15, ['id', 'note', 'detail', 'created_at']);
