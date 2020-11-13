@@ -2799,6 +2799,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2924,7 +2940,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.deleteDialog = false;
       }
     },
-    showNote: function showNote() {}
+    showNote: function showNote(note) {
+      this.note = note;
+      this.showNoteDialog = true;
+    }
   }),
   created: function created() {
     this.getNotes();
@@ -22179,6 +22198,24 @@ var render = function() {
                                     _c(
                                       "v-btn",
                                       {
+                                        attrs: { icon: "", color: "blue" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.showNote(note)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("v-icon", [
+                                          _vm._v("mdi-magnify-scan")
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
                                         attrs: {
                                           icon: "",
                                           color: "deep-orange lighten-1"
@@ -22223,7 +22260,7 @@ var render = function() {
                   ],
                   null,
                   false,
-                  442348396
+                  3067401596
                 )
               })
             : _vm._e(),
@@ -22266,7 +22303,46 @@ var render = function() {
             expression: "showNoteDialog"
           }
         },
-        [_c("v-card")],
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "blue-grey--text" }, [
+                _vm._v("Note Detail")
+              ]),
+              _vm._v(" "),
+              _c("v-card-text", [
+                _c("h2", [_vm._v(_vm._s(_vm.note.note))]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.note.detail))]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Added at " + _vm._s(_vm.note.date))])
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "blue", outlined: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.showNoteDialog = false
+                        }
+                      }
+                    },
+                    [_vm._v("Close")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
         1
       ),
       _vm._v(" "),

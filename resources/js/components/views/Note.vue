@@ -32,6 +32,13 @@
                         <td>
                             <v-btn
                                 icon
+                                color="blue"
+                                @click="showNote(note)"
+                            >
+                                <v-icon>mdi-magnify-scan</v-icon>
+                            </v-btn>
+                            <v-btn
+                                icon
                                 color="deep-orange lighten-1"
                                 @click="toggleAddNote(false, note)"
                             >
@@ -67,7 +74,16 @@
             max-width="600"
         >
             <v-card>
-                <v-card-title class="blue-grey--text"
+                <v-card-title class="blue-grey--text">Note Detail</v-card-title>
+                <v-card-text>
+                    <h2>{{ note.note }}</h2>
+                    <p>{{ note.detail }}</p>
+                    <p>Added at {{ note.date }}</p>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue" outlined @click="showNoteDialog = false">Close</v-btn>
+                </v-card-actions>
             </v-card>
         </v-dialog>
 
@@ -253,8 +269,9 @@ export default {
             }
         },
 
-        showNote() {
-
+        showNote(note) {
+            this.note = note;
+            this.showNoteDialog = true;
         }
     },
     created() {
