@@ -18,7 +18,7 @@ class NoteController extends Controller
 
     public function index()
     {
-        $notes = Auth::user()->notes()->paginate(15, ['id', 'note', 'detail', 'created_at']);
+        $notes = Auth::user()->notes()->orderByDesc('id')->paginate(15, ['id', 'note', 'detail', 'created_at']);
         return Response::json([
             'notes' => NoteResource::collection($notes),
             'total' => ceil($notes->total() / 15)
@@ -32,9 +32,10 @@ class NoteController extends Controller
             'detail' => ''
         ]);
 
-        Auth::user()->notes()->create($data);
+        $note = Auth::user()->notes()->create($data);
         return Response::json([
-            'message' => 'Record added successfully!'
+            'message' => 'Record added successfully!',
+            'note' => new NoteResource($note)
         ]);
     }
 
@@ -55,6 +56,9 @@ class NoteController extends Controller
         ]);
 
         $note->update($data);
+        return Response::json([
+            'message' => 'Record updated successfully!'
+        ]);
     }
 
     public function destroy(Note $note)
