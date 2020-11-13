@@ -7,4 +7,4 @@ My personal financial tracking system and storing notes.
 - Expenditure Management
 - Storing Notes
     - any kinds of text
-    - any kinds of file
+    - any kinds of file (will add later)
