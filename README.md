@@ -1,4 +1,4 @@
-# Vault
+# Vault - Single Page Application
 
 My personal financial tracking system and storing notes.
 
