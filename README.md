@@ -16,5 +16,7 @@ My personal financial tracking system and storing notes.
     - vuetify
     - vue-router
     - vuex
-    
+
+**Screenshots**
+
 ![Note Page](https://raw.githubusercontent.com/lzytourist/vault/main/screenshots/Screenshot%20-%20Note%20Page.jpg)
